@@ -1,33 +1,14 @@
-# Pointage biométrique (visage + empreinte)
+Voici une description claire, élégante et professionnelle de ton site, sans aucun code technique, parfaite pour être présentée ou insérée dans un rapport :
 
-Plateforme de pointage de présence pour écoles, entreprises et chantiers.
-Back : FastAPI + PostgreSQL + Redis. Front : Next.js. Visage : OpenCV (YuNet + SFace). Empreinte : WebAuthn.
+---
 
-## Démarrage rapide (Windows, Docker Desktop lancé)
+### **IDENTIFYME (P M L)** — Plateforme de Pointage et d'Authentification Biométrique
 
-1. Copie `.env.example` en `.env` puis remplis :
-   - `POSTGRES_PASSWORD` et le même mot de passe dans `DATABASE_URL` (lettres et chiffres seulement)
-   - `SECRET_KEY` et `FACE_ENCRYPTION_KEY` : une valeur aléatoire chacune
-     ```
-     docker run --rm python:3.11-slim python -c "import base64,os;print(base64.urlsafe_b64encode(os.urandom(32)).decode())"
-     ```
-   - **Sauvegarde `FACE_ENCRYPTION_KEY` ailleurs** : sans elle, les visages enrôlés sont illisibles.
-2. Lance : `docker compose up --build`
-3. Dans un second terminal :
-   ```
-   docker compose exec api alembic revision --autogenerate -m "init"
-   docker compose exec api alembic upgrade head
-   docker compose exec api python -m app.scripts.create_super_admin --email toi@exemple.com --full-name "Ton Nom"
-   ```
-4. Ouvre http://localhost:3000 (pas 127.0.0.1 : l'empreinte WebAuthn l'exige).
+**IDENTIFYME** est une solution web moderne de gestion des présences et de contrôle d'accès qui exploite la biométrie de pointe pour sécuriser et automatiser l'identification des utilisateurs. Conçue pour répondre aux besoins exigeants des environnements professionnels, scolaires ou de chantiers, la plateforme combine deux technologies d'authentification majeures :
 
-Tests : `docker compose exec api pytest`
+* **La reconnaissance faciale** pour un repérage visuel rapide et fluide.
+* **L'authentification par empreinte digitale** pour garantir une sécurité infalsifiable.
 
-## Adresses
-- Site : http://localhost:3000
-- API et documentation : http://localhost:8000/docs
+Pensée pour offrir une expérience utilisateur à la fois intuitive et hautement sécurisée, la solution permet un suivi en temps réel des présences tout en protégeant rigoureusement les données personnelles et biométriques des inscrits.
 
-## Notes
-- Les modèles de reconnaissance (~40 Mo) se téléchargent au premier démarrage dans le dossier `models/`.
-- Le texte de consentement (`backend/app/biometrics/consent.py`) est un modèle à faire relire par un juriste avant toute mise en production.
-- Les fichiers de migration (`backend/alembic/versions/`) ne sont pas dans l'archive : génère-les avec la commande de l'étape 3.
+*Développé par **Papa Amapate Loum** (P M L).*
