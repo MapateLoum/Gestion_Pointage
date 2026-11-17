@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 25% 97%;
+    --foreground: 160 22% 10%;
+    --card: 0 0% 100%;
+    --muted: 150 14% 94%;
+    --muted-foreground: 160 8% 38%;
+    --border: 150 12% 88%;
+    --ring: 156 70% 30%;
+    --primary: 156 70% 22%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 160 30% 10%;
+    --destructive: 4 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 62% 32%;
+    --warning: 38 92% 46%;
+    --sidebar: 158 55% 11%;
+    --sidebar-foreground: 150 20% 90%;
+    color-scheme: light;
+  }
+
+  .dark {
+    --background: 160 25% 7%;
+    --foreground: 140 15% 92%;
+    --card: 160 22% 10%;
+    --muted: 160 15% 15%;
+    --muted-foreground: 150 10% 64%;
+    --border: 160 15% 19%;
+    --ring: 152 55% 45%;
+    --primary: 152 55% 42%;
+    --primary-foreground: 160 40% 6%;
+    --accent: 43 80% 55%;
+    --accent-foreground: 160 30% 8%;
+    --destructive: 4 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 55% 50%;
+    --warning: 38 92% 55%;
+    --sidebar: 160 30% 5%;
+    --sidebar-foreground: 150 15% 88%;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+.bg-pattern {
+  background-image: radial-gradient(hsl(0 0% 100% / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
